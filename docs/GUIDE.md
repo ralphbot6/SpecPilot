@@ -169,7 +169,7 @@ specpilot init my-project --no-prompts
 
 **Options:**
 
-- `--lang, -l <language>`: Programming language (typescript, javascript, python) · default: `typescript`
+- `--lang, -l <language>`: Programming language (typescript, javascript, python, java) · default: `typescript`
 - `--framework, -f <framework>`: Framework (react, express, fastapi, django, etc.)
 - `--dir, -d <directory>`: Target directory · default: `.`
 - `--specs-name <name>`: Custom name for the specs folder · default: `.specs`
@@ -194,7 +194,7 @@ specpilot add-specs --deep-analysis
 
 **Options:**
 
-- `--lang, -l <language>`: Programming language (typescript, javascript, python)
+- `--lang, -l <language>`: Programming language (typescript, javascript, python, java)
 - `--framework, -f <framework>`: Framework (react, express, fastapi, django, etc.)
 - `--no-analysis`: Skip automatic codebase analysis
 - `--deep-analysis`: Perform comprehensive code analysis

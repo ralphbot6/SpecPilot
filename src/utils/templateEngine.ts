@@ -60,11 +60,13 @@ export class TemplateEngine {
       'typescript-project.yaml': this.getProjectYamlTemplate('typescript'),
       'javascript-project.yaml': this.getProjectYamlTemplate('javascript'),
       'python-project.yaml': this.getProjectYamlTemplate('python'),
-      
+      'java-project.yaml': this.getProjectYamlTemplate('java'),
+       
       // Architecture templates
       'typescript-architecture.md': this.getArchitectureTemplate('typescript'),
       'javascript-architecture.md': this.getArchitectureTemplate('javascript'),
       'python-architecture.md': this.getArchitectureTemplate('python'),
+      'java-architecture.md': this.getArchitectureTemplate('java'),
       
       // Framework-specific variations
       'typescript-react-project.yaml': this.getProjectYamlTemplate('typescript', 'react'),
@@ -73,6 +75,7 @@ export class TemplateEngine {
       'javascript-express-project.yaml': this.getProjectYamlTemplate('javascript', 'express'),
       'python-django-project.yaml': this.getProjectYamlTemplate('python', 'django'),
       'python-fastapi-project.yaml': this.getProjectYamlTemplate('python', 'fastapi'),
+      'java-spring-boot-project.yaml': this.getProjectYamlTemplate('java', 'spring-boot'),
     };
 
     if (templates[key]) {
@@ -149,10 +152,11 @@ team:
   documentation_required: true
   
 # Build and Deployment
-build:
-  ${language === 'typescript' ? 'command: "npm run build"' : ''}
-  ${language === 'javascript' ? 'command: "npm start"' : ''}
-  ${language === 'python' ? 'command: "python -m build"' : ''}
+  build:
+   ${language === 'typescript' ? 'command: "npm run build"' : ''}
+   ${language === 'javascript' ? 'command: "npm start"' : ''}
+   ${language === 'python' ? 'command: "python -m build"' : ''}
+   ${language === 'java' ? 'command: "mvn clean package"' : ''}
 
 # Dependencies (framework-specific)
 ${this.getDependencySection(language, framework)}`;
@@ -202,6 +206,16 @@ ${this.getDependencySection(language, framework)}`;
     - "helmet"
   development:
     - "nodemon"`;
+    }
+    
+    if (language === 'java' && framework === 'spring-boot') {
+      return `dependencies:
+  runtime:
+    - "spring-boot-starter"
+    - "spring-boot-starter-web"
+  development:
+    - "spring-boot-devtools"
+    - "spring-boot-starter-test"`;
     }
     
     return `dependencies:

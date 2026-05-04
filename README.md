@@ -107,6 +107,10 @@ specpilot validate --fix
 - **Flask**: Lightweight REST APIs
 - **Streamlit**: Data Science / ML apps
 
+### Java
+
+- **Spring Boot**: Enterprise applications with Maven
+
 ## Project Structure
 
 SpecPilot generates a `.specs/` folder with organized subdirectories:

@@ -122,6 +122,23 @@ describe('TemplateEngine', () => {
       expect(result).toContain('python');
     });
 
+    it('returns non-empty content for java project.yaml', () => {
+      const result = engine.getBuiltinTemplate('java', undefined, 'project.yaml');
+      expect(result.length).toBeGreaterThan(0);
+      expect(result).toContain('java');
+    });
+
+    it('returns non-empty content for java-spring-boot project.yaml', () => {
+      const result = engine.getBuiltinTemplate('java', 'spring-boot', 'project.yaml');
+      expect(result.length).toBeGreaterThan(0);
+      expect(result).toContain('spring-boot');
+    });
+
+    it('returns non-empty content for java architecture.md', () => {
+      const result = engine.getBuiltinTemplate('java', undefined, 'architecture.md');
+      expect(result.length).toBeGreaterThan(0);
+    });
+
     it('returns non-empty content for typescript architecture.md', () => {
       const result = engine.getBuiltinTemplate('typescript', undefined, 'architecture.md');
       expect(result.length).toBeGreaterThan(0);
