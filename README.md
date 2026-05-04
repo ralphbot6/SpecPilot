@@ -35,17 +35,17 @@ This AI-assisted approach ensures comprehensive, high-quality specifications tai
 
 ## Commands
 
-| Command                 | Description                                         |
-| ----------------------- | --------------------------------------------------- |
-| `init <name>`           | Initialize new SDD project                                        |
-| `init <name> --dry-run` | Preview files that would be created without writing               |
-| `add-specs`             | Add specs to existing project                                     |
-| `validate`              | Validate specification files                                      |
-| `archive`               | Archive oversized `prompts.md` / `tasks.md` entries               |
-| `backfill`              | Backfill missing mandates into existing project files             |
-| `list`                  | Show available templates                                          |
-| `migrate`               | Convert legacy `.project-spec` folder (rarely needed)             |
-| `refine [desc]`         | Refine project specifications                                     |
+| Command                 | Description                                                                 |
+| ----------------------- | --------------------------------------------------------------------------- |
+| `init <name>`           | Create a new SDD project with complete `.specs/` folder and IDE integration |
+| `init <name> --dry-run` | Preview exactly which files would be created without writing anything       |
+| `add-specs`             | Add a full `.specs/` folder to an existing codebase (with analysis)         |
+| `validate`              | Check that your `.specs/` folder is complete and follows all mandates       |
+| `archive`               | Move old entries from `prompts.md`/`tasks.md` into their archive files      |
+| `backfill`              | Safely inject missing mandates after upgrading SpecPilot                    |
+| `list`                  | Show all available language/framework templates                             |
+| `migrate`               | Convert legacy `.project-spec` folder (rarely needed)                       |
+| `refine [desc]`         | Update specifications from a natural language description of changes        |
 
 > **Tip — command aliases:** All commands have a short alias you can use instead of the full name.
 > `init` → `i` &nbsp;·&nbsp; `validate` → `v` &nbsp;·&nbsp; `migrate` → `m` &nbsp;·&nbsp; `list` → `ls` &nbsp;·&nbsp; `refine` → `ref` &nbsp;·&nbsp; `archive` → `ar` &nbsp;·&nbsp; `add-specs` → `add` &nbsp;·&nbsp; `backfill` → `bf`
@@ -69,16 +69,19 @@ This AI-assisted approach ensures comprehensive, high-quality specifications tai
 ### Examples
 
 ```bash
-# Initialize with specific language/framework
+# Initialize a new Java + Spring Boot project
+specpilot init backend --lang java --framework spring-boot
+
+# Initialize a Python project with FastAPI
 specpilot init api --lang python --framework fastapi
 
-# Preview files that would be created without writing anything
-specpilot init api --dry-run
+# Preview what would be created without writing anything
+specpilot init my-app --dry-run
 
-# Refine specifications
-specpilot refine "REST API for user management" --update
+# Add specs to an existing TypeScript project
+specpilot add-specs --lang typescript --framework react
 
-# Validate with auto-fix
+# Validate and auto-fix issues
 specpilot validate --fix
 ```
 

@@ -129,6 +129,8 @@ specpilot validate
 
 ## Commands Reference
 
+> **Tip:** Run `specpilot <command> --help` for the most up-to-date and detailed information about any command.
+>
 > **Tip — command aliases:** Every command has a short alias for faster typing.
 >
 > | Command     | Alias |
@@ -156,6 +158,9 @@ specpilot init my-project
 
 # With language and framework
 specpilot init my-app --lang typescript --framework react
+
+# Java + Spring Boot
+specpilot init backend --lang java --framework spring-boot
 
 # Preview files that would be created without writing anything
 specpilot init my-project --dry-run
